@@ -2,20 +2,21 @@
 /**
  * Created by PhpStorm.
  * User: Uilian
- * Date: 03/06/2017
- * Time: 16:50
+ * Date: 04/06/2017
+ * Time: 03:57
  */
+
 try {
     include '../connection/connection.php';
     //Variaveis recebem os valores passados via GET
     $token = htmlspecialchars($_GET["token"],ENT_QUOTES);
     $sala = htmlspecialchars($_GET["sala"],ENT_QUOTES);
     $controladora = htmlspecialchars($_GET["controladora"],ENT_QUOTES);
-    $pstatus1 = htmlspecialchars($_GET["status1"],ENT_QUOTES);
+    $pstatus3 = htmlspecialchars($_GET["status3"],ENT_QUOTES);
     $nome = "sem cadastro";
     $liberacao = "n";
-    $vlr_sala1 = 2;
-    $status1 = 3;
+    $vlr_sala3 = 2;
+    $status3 = 3;
     $estado = "";
 
     //Verifica se o token e a sala esta sem dados
@@ -36,32 +37,32 @@ try {
         $search_controladora="SELECT  sala1, sala2, sala3 FROM `controladora` WHERE nome ='$controladora'";
         $result_cont = @$conn->query($search_controladora);
         while($row = $result_cont->fetch_assoc()){
-            $vlr_sala1 = $row['sala1'];
+            $vlr_sala3 = $row['sala3'];
         }
 
 
         //Altera o valor da variavel status1 de acordo com o valor obtido na pesquisa controladora
-        if (($pstatus1 == 1) and ($vlr_sala1 == 0)):
-            $status1 = 1;
+        if (($pstatus3 == 1) and ($vlr_sala3 == 0)):
+            $status3 = 1;
             $estado = "abriu";
-        elseif (($pstatus1 == 1) and ($vlr_sala1 == 1)):
-            $status1 = 1;
+        elseif (($pstatus3 == 1) and ($vlr_sala3 == 1)):
+            $status3 = 1;
             $estado = "abriu";
-        elseif (($pstatus1 == 0) and ($vlr_sala1 == 0)):
-            $status1 = 0;
+        elseif (($pstatus3 == 0) and ($vlr_sala3 == 0)):
+            $status3 = 0;
             $estado = "fechou";
-        elseif (($pstatus1 == 0) and ($vlr_sala1 == 1)):
-            $status1 = 0;
+        elseif (($pstatus3 == 0) and ($vlr_sala3 == 1)):
+            $status3 = 0;
             $estado = "fechou";
-        elseif ($status1 == 3):
-            $status1 = $vlr_sala1;
+        elseif ($status3 == 3):
+            $status3 = $vlr_sala3;
             $estado = "sem dados";
         endif;
 
         $log = "insert into log (dt, id, nome, token, sala)
             values (NOW(),NULL,'$nome','$token','$sala')";
 
-        $update_cont = "UPDATE controladora SET sala1=$status1 WHERE nome = '$controladora'";
+        $update_cont = "UPDATE controladora SET sala3=$status3 WHERE nome = '$controladora'";
 
         $conn->query($update_cont);
 
@@ -70,7 +71,7 @@ try {
 
         if($liberacao == "s"):
 
-            echo "<porta_1>",$status1,"</porta>";
+            echo "<porta_1>",$status3,"</porta>";
 
 
             echo $estado;
