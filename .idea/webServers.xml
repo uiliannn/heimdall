@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e909c8c9-c40b-4cf7-85a4-28a4e870dc5b" name="heimdall" url="http://monstrlab.com.br/opet/locker">
+        <fileTransfer host="ftp.monstrlab.com.br" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
