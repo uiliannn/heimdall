@@ -1,7 +1,7 @@
 //definicoes web
 String api = "/heimdall/portas/";
 String nome = "controladora1";
-char server[] = "10.10.10.108"  ;          //IP do server
+char server[] = "10.10.10.15"  ;          //IP do server
 const int httpPort = 80;
 String token = "";
 //definicoes portas
