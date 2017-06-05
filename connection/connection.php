@@ -7,7 +7,7 @@
  */
 $host = "localhost";
 $user = "root";
-$pass = "";
+$pass = "filipenses413";
 $dbname = "heimdall";
 $response = new \stdClass();
 try {

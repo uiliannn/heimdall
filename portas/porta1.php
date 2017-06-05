@@ -64,6 +64,7 @@ try {
         $update_cont = "UPDATE controladora SET sala1=$status1 WHERE nome = '$controladora'";
 
         $conn->query($update_cont);
+        $conn->query($log);
 
 
 

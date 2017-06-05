@@ -70,7 +70,7 @@ try {
 
         if($liberacao == "s"):
 
-            echo "<porta_1>",$status2,"</porta>";
+            echo "<porta_2>",$status2,"</porta_2>";
 
 
             echo $estado;
